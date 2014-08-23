@@ -4,18 +4,18 @@ A simple lru-cache library that can be used in node.js and browsers. The data st
 
 ## Installation
 
-    `npm install js-lru-cache -save`
+    npm install js-lru-cache -save
 
 
 ## APIs
 * constructor
     - create a cache object
-   ```javascript
-   var LRUCache = require('lru-cache');
-   var capacity = 10, // max number of values can be cached
-       maxAge = 6000; // maxAge is in milliseconds
-   var cache = new LRUCache(capacity, maxAge);
-   ```
+    ```javascript
+    var LRUCache = require('lru-cache');
+    var capacity = 10, // max number of values can be cached
+        maxAge = 6000; // maxAge is in milliseconds
+    var cache = new LRUCache(capacity, maxAge);
+    ```
 
 * set(key, value)
     - if the key does not exist, adding the value into the cache
