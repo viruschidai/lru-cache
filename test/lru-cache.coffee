@@ -77,6 +77,15 @@ describe 'LRUCache', ->
       cache.set 'key2', 'value2'
       expect(cache.values()).to.eql ['value1', 'value2']
 
+    it 'should return empty array if all values expired', (done) ->
+      cache = new LRUCache 2, 1000
+      cache.set 'key1', 'value1'
+      cache.set 'key2', 'value2'
+      setTimeout ->
+        expect(cache.values()).to.eql []
+        done()
+      , 1500
+
 
   describe 'Expires', ->
     it 'should expire node after maxAge', (done) ->

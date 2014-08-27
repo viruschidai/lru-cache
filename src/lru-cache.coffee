@@ -40,8 +40,9 @@ class LRUCache
     return Object.keys @_hash
 
   values: ->
-    @keys().map (key) =>
+    values = @keys().map (key) =>
       @get(key)
+    return values.filter (v) -> v isnt undefined
 
   remove: (key) ->
     if @_hash[key]?
