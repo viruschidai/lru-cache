@@ -1,4 +1,4 @@
-# lru-cache 
+# lru-cache
 [![Build Status](https://travis-ci.org/viruschidai/lru-cache.png?branch=master)](https://travis-ci.org/viruschidai/lru-cache)
 A simple lru-cache library that can be used in node.js and browsers. The data structure used are a double linked list + a hash table. Theoretically, `set`, `get`, and `remove`  operations should be done in O(1).
 
@@ -22,11 +22,11 @@ A simple lru-cache library that can be used in node.js and browsers. The data st
     - if the key exists, update the value and the last visited time of the key
     - if the cache reaches its capability, the least used item in the cache will be removed
     ```javascript
-    cache.set('key1', 'value1');  
+    cache.set('key1', 'value1');
     ```
-    
+
 * get(key)
-    - if the key exists, the value of the key is returned, the last visited time of the key is updated as well                 
+    - if the key exists, the value of the key is returned, the last visited time of the key is updated as well
     - if the key exists but is expired, return undefined
     - if the key does not exist, return undefined
     ```javascript
@@ -51,8 +51,8 @@ A simple lru-cache library that can be used in node.js and browsers. The data st
     ```javascript
     cache.values(); // return all values in the cache
     ```
-  
-* size 
+
+* size
     - the number of cache items
     ```javascript
     cache.size; // return the size of the cache
@@ -72,4 +72,12 @@ A simple lru-cache library that can be used in node.js and browsers. The data st
 
 
 ## License
-lru-cache is released under the [MIT License][opensource].
+The MIT License (MIT)
+
+Copyright (c) 2013 viruschidai@gmail.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
