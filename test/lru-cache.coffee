@@ -18,7 +18,7 @@ describe 'LRUCache', ->
       expect(cache.size).to.be 1
       expect(cache.get 'key1').to.be 'value1'
 
-    it 'should update value if a key is already in cache', ->
+    it 'should update value if a key is already in the cache', ->
       cache = new LRUCache 10, 6000
       expect(cache.size).to.be 0
       cache.set 'key1', 'value1'
@@ -44,13 +44,6 @@ describe 'LRUCache', ->
 
     it 'should return undefined for key does not exist in cache', ->
       expect(cache.get 'somekey').to.be undefined
-
-    it 'should return undefined if a key expires', (done) ->
-      cache.set 'key1', 'value1'
-      setTimeout ->
-        expect(cache.get 'key1').to.be undefined
-        done()
-      , 1500
 
 
   describe 'remove()', ->
@@ -83,3 +76,38 @@ describe 'LRUCache', ->
       cache.set 'key1', 'value1'
       cache.set 'key2', 'value2'
       expect(cache.values()).to.eql ['value1', 'value2']
+
+
+  describe 'Expires', ->
+    it 'should expire node after maxAge', (done) ->
+      cache = new LRUCache 2, 1000
+      cache.set 'key1', 'value1'
+      expect(cache.get 'key1').to.be 'value1'
+      setTimeout ->
+        expect(cache.get 'key1').to.be undefined
+        done()
+      , 1500
+
+    it 'should reset expire time of a node when set is called' , (done) ->
+      cache = new LRUCache 2, 1000
+      cache.set 'key1', 'value1'
+      expect(cache.get 'key1').to.be 'value1'
+      setTimeout ->
+        cache.set 'key1', 'value1'
+      , 800
+      setTimeout ->
+        expect(cache.get 'key1').to.be 'value1'
+        done()
+      , 1500
+
+    it 'should reset expire time of a node when get is called' , (done) ->
+      cache = new LRUCache 2, 1000
+      cache.set 'key1', 'value1'
+      expect(cache.get 'key1').to.be 'value1'
+      setTimeout ->
+        cache.get 'key1'
+      , 800
+      setTimeout ->
+        expect(cache.get 'key1').to.be 'value1'
+        done()
+      , 1500
