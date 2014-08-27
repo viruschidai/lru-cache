@@ -64,11 +64,15 @@
     };
 
     LRUCache.prototype.values = function() {
-      return this.keys().map((function(_this) {
+      var values;
+      values = this.keys().map((function(_this) {
         return function(key) {
           return _this.get(key);
         };
       })(this));
+      return values.filter(function(v) {
+        return v !== void 0;
+      });
     };
 
     LRUCache.prototype.remove = function(key) {
