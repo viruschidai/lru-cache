@@ -75,7 +75,9 @@ class LRUCache
 
   get: (key) ->
     node = @_hash[key]
-    if !node? or @_isExpiredNode node
+    if !node then return undefined
+    if @_isExpiredNode node
+      @remove key
       return undefined
     @_refreshNode node
     return node.data.value

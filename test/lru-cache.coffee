@@ -92,8 +92,10 @@ describe 'LRUCache', ->
       cache = new LRUCache 2, 1000
       cache.set 'key1', 'value1'
       expect(cache.get 'key1').to.be 'value1'
+      expect(cache.size).to.be 1
       setTimeout ->
         expect(cache.get 'key1').to.be undefined
+        expect(cache.size).to.be 0
         done()
       , 1500
 

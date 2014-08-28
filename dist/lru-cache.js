@@ -120,7 +120,11 @@
     LRUCache.prototype.get = function(key) {
       var node;
       node = this._hash[key];
-      if ((node == null) || this._isExpiredNode(node)) {
+      if (!node) {
+        return void 0;
+      }
+      if (this._isExpiredNode(node)) {
+        this.remove(key);
         return void 0;
       }
       this._refreshNode(node);
