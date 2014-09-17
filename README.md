@@ -1,6 +1,6 @@
 # lru-cache
 [![Build Status](https://travis-ci.org/viruschidai/lru-cache.png?branch=master)](https://travis-ci.org/viruschidai/lru-cache)
-A simple lru-cache library that can be used in node.js and browsers. The data structure used are a double linked list + a hash table. Theoretically, `set`, `get`, and `remove`  operations should be done in O(1).
+A simple lru-cache library that can be used in both node.js and browsers. The data structure used are a double linked list + a hash table. Theoretically, `set`, `get`, and `remove`  operations should be done in O(1).
 
 ## Installation
 
