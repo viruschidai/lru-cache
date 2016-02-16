@@ -1,6 +1,6 @@
 {
   "name": "js-lru-cache",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "lru-cache caching node.js frontend",
   "main": "index.js",
   "scripts": {
