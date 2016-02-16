@@ -1,8 +1,10 @@
 {
   "name": "js-lru-cache",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "lru-cache caching node.js frontend",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "dist/lru-cache.js",
   "scripts": {
     "test": "NODE_ENV=test mocha --compilers coffee:coffee-script/register -R spec --recursive test",
