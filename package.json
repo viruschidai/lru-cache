@@ -2,14 +2,15 @@
   "name": "js-lru-cache",
   "version": "0.1.9",
   "description": "lru-cache caching node.js frontend",
-  "main": "index.js",
+  "files": ["dist"],
+  "main": "dist/lru-cache.js",
   "scripts": {
     "test": "NODE_ENV=test mocha --compilers coffee:coffee-script/register -R spec --recursive test",
     "prepublish": "coffee --output dist --compile src"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/viruschidai/lru-cache"
+    "url": "git+https://github.com/viruschidai/lru-cache.git"
   },
   "keywords": [
     "lru-cache",
@@ -27,5 +28,9 @@
     "coffee-script": "^1.7.1",
     "mocha": "^1.21.4",
     "expect.js": "^0.3.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {}
 }
